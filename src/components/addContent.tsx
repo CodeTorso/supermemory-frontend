@@ -51,13 +51,13 @@ function ToolBar() {
   const [index, setIndex] = useState(0);
   return (
     <div className="fixed top-32 z-[100000]">
-      <div className="bg-[#1F2428]"> 
+      {/* <div className="bg-[#1F2428]">  */}
         <HoverEffect
           items={fakeitems}
           index={index}
           indexFn={(i) => setIndex(i)}
         />
-      </div>
+      {/* </div> */}
     </div>
   );
 }
