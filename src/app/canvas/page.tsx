@@ -1,26 +1,63 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Canvas from "./_components/canvas";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import ReactTextareaAutosize from "react-textarea-autosize";
+import debounce from "debounce";
 
 function page() {
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [value, setValue] = useState("");
+
+  function setValueFn(e: string) {
+    setValue(e);
+    if (textAreaRef.current) {
+      textAreaRef.current.spellcheck = true;
+    }
+    debouncedSpellCheckFalse();
+  }
+
+  const debouncedSpellCheckFalse = debounce(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.spellcheck = false;
+    }
+  }, 3000);
+
+  useEffect(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.focus();
+    }
+  }, []);
   return (
     <div className="h-screen w-full px-16 py-10">
       <div>
         <PanelGroup className="w-[calc(100vw-8rem)]" direction="horizontal">
           <Panel defaultSize={30}>
-            <div className="h-[calc(100vh-5rem)] w-full overflow-hidden rounded-2xl bg-[#1F2428]">
-              <div className="flex justify-between items-center text-[#989EA4] text-lg font-medium bg-[#2C3439] px-4 py-2">
+            <div className="flex h-[calc(100vh-5rem)] w-full flex-col overflow-hidden rounded-2xl bg-[#1F2428]">
+              <div className="flex items-center justify-between bg-[#2C3439] px-4 py-2 text-lg font-medium text-[#989EA4]">
                 Change Filters
                 <SettingsSvg />
+              </div>
+              <div className="px-3 py-5">
+                <ReactTextareaAutosize
+                  spellCheck="false"
+                  placeholder="search..."
+                  onChange={(e) => {
+                    setValueFn(e.target.value);
+                  }}
+                  value={value}
+                  ref={textAreaRef}
+                  rows={1}
+                  className="w-full resize-none px-3 py-4 rounded-xl bg-[#171B1F] text-xl text-[#989EA4] outline-none focus:outline-none sm:max-h-52"
+                />
               </div>
             </div>
           </Panel>
           <PanelResizeHandle className="relative flex items-center justify-center px-1">
             {/* <div className="absolute z-[1000000]  top-1/2 -translate-y-1/2"> */}
-            <div className="py-2 px-2 rounded-lg bg-[#2F363B]">
-            <DragSvg />
+            <div className="rounded-lg bg-[#2F363B] px-2 py-2">
+              <DragSvg />
             </div>
             {/* </div> */}
           </PanelResizeHandle>
