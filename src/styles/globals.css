@@ -46,7 +46,7 @@ html {
   background: #1F2428 !important;
 }
 
-.tlui-style-panel.tlui-style-panel__wrapper, .tlui-navigation-panel::before ,.tlui-menu-zone, .tlui-toolbar__tools {
+.tlui-style-panel.tlui-style-panel__wrapper, .tlui-navigation-panel::before ,.tlui-menu-zone, .tlui-toolbar__tools, .tlui-popover__content, .tlui-menu {
   background: #2C3439 !important;
   border-top: #2C3439 !important;
   border-right: #2C3439 !important;
