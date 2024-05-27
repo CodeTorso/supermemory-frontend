@@ -33,7 +33,7 @@ function page() {
     <div className="h-screen w-full px-16 py-10">
       <div>
         <PanelGroup className="w-[calc(100vw-8rem)]" direction="horizontal">
-          <Panel defaultSize={30}>
+          <Panel defaultSize={30} collapsible={true} minSize={22}>
             <div className="flex h-[calc(100vh-5rem)] w-full flex-col overflow-hidden rounded-2xl bg-[#1F2428]">
               <div className="flex items-center justify-between bg-[#2C3439] px-4 py-2 text-lg font-medium text-[#989EA4]">
                 Change Filters
