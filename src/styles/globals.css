@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap");
+@import url("tldraw/tldraw.css");
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -23,6 +26,43 @@
   background: #090d11;
 }
 
+body {
+  font-family: "Inter";
+}
+
+
 html {
   scroll-behavior: smooth;
+}
+
+/* .parent-excalidraw .excalidraw.theme--dark {
+  --color-primary: red;
+  --color-primary-darker: red;
+  --color-primary-darkest: red;
+  --color-primary-light: red;
+} */
+
+.tl-background {
+  background: #1F2428 !important;
+}
+
+.tlui-style-panel.tlui-style-panel__wrapper, .tlui-navigation-panel::before ,.tlui-menu-zone, .tlui-toolbar__tools {
+  background: #2C3439 !important;
+  border-top: #2C3439 !important;
+  border-right: #2C3439 !important;
+  border-bottom: #2C3439 !important;
+  border-left: #2C3439 !important;
+}
+
+.tlui-navigation-panel::before {
+  border-top: #2C3439 !important;
+  border-right: #2C3439 !important;
+}
+
+.tlui-minimap {
+  background: #2C3439 !important;
+}
+
+.tlui-minimap__canvas {
+  background: #1F2428 !important;
 }

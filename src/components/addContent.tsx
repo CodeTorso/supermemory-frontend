@@ -57,6 +57,7 @@ function ToolBar() {
           index={index}
           indexFn={(i) => setIndex(i)}
         />
+        
       {/* </div> */}
     </div>
   );

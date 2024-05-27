@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Navbar() {
   return (
-    <div className="z-50 fixed left-4 top-1/2 -translate-y-1/2">
+    <div className="z-[9999] fixed left-4 top-1/2 -translate-y-1/2">
       <div className="hover:rounded-2x group inline-flex w-14 flex-col items-start gap-6 overflow-hidden rounded-[28px] bg-[#1F2428] px-3 py-4 text-[#6A737D] duration-200 hover:w-40">
         <Link href="memories">
           <div className="flex cursor-pointer items-center gap-3 px-1 duration-200 hover:scale-105 hover:text-[#bfc4c9] active:scale-90">
